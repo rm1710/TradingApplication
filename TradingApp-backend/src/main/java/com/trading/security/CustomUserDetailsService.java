@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.trading.entity.User;
+import com.trading.entity.UserEntity;
 import com.trading.repository.UserRepository;
 
 @Service
@@ -20,7 +20,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByEmail(username);
+		UserEntity user = userRepository.findByEmail(username);
 
 		if (user == null) {
 			throw new UsernameNotFoundException(username);

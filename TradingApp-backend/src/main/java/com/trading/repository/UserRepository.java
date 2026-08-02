@@ -1,12 +1,12 @@
 package com.trading.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.trading.entity.User;
+import com.trading.entity.UserEntity;
 
 
 
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UserRepository extends JpaRepository<UserEntity, Long>{
 
-	User findByEmail(String email);
+	UserEntity findByEmail(String email);
 
 }

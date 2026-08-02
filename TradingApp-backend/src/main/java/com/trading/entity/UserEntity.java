@@ -15,7 +15,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name="TA_USERS")
-public class User {
+public class UserEntity {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
