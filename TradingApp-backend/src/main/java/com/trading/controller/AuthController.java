@@ -3,9 +3,11 @@ package com.trading.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.trading.entity.User;
@@ -35,5 +37,12 @@ public class AuthController {
 		AuthResponse auth= userService.signin(user);
 		return new ResponseEntity<>(auth,HttpStatus.ACCEPTED);
 
+	}
+	
+	
+	
+	public ResponseEntity<AuthResponse> verifySigningOtp(@PathVariable String otp, @RequestParam String id) throws Exception{
+		AuthResponse auth= userService.VerifyOTP(otp,id);
+		return new ResponseEntity<>(auth, HttpStatus.OK);
 	}
 }
